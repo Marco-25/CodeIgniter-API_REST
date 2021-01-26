@@ -1,0 +1,14 @@
+http://nossoprodutodigital.com/api/usuarios/adicionar - use post
+
+http://nossoprodutodigital.com/api/usuarios - use get
+
+http://nossoprodutodigital.com/api/usuarios/{id} -use get
+
+http://nossoprodutodigital.com/api/usuarios/buscar/{buscar por nome ou parte dele} - use get
+
+http://nossoprodutodigital.com/api/usuarios/editar/{id} - use put
+
+http://nossoprodutodigital.com/api/usuarios/remover/{id} - use delete
+
+token jwt - para fazer autenticação
+
