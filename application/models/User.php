@@ -13,7 +13,9 @@ class User extends CI_Model
 
 	public function setResponse($code, $message, $data)
 	{
-		$this->output->set_status_header($code, $message)
+		$this->output
+			
+			->set_status_header($code, $message)
 			->set_content_type('application/json')
 			->set_output($this->JsonEncode($data));
 	}
@@ -28,7 +30,10 @@ class User extends CI_Model
 
 	public function get_user_name($name)
 	{
-		if ($data = $this->db->get_where( $this->table,['name' => $name])->result()) {
+		$name_replace = str_replace('+', ' ', $name);
+		
+		$data = $this->db->query("SELECT * FROM user WHERE name LIKE '$name_replace%' ")->result();
+		if ($this->JsonEncode($data)) {
 			$this->setResponse(200,'success',$data);
 			return;
 		}
@@ -63,14 +68,17 @@ class User extends CI_Model
 
 		$this->name = $data['name'];
 		$this->db->where('name', $this->name);
-
-		$this->pass = password_hash($data['pass'], PASSWORD_BCRYPT);
-
 		if ($this->db->get($this->table)->result() ){
 			$this->setResponse(201,'WARNING',"usuario ja cadastrado.");
 			return;
 		}
 
+		$query = $this->db->query("SELECT pass FROM user WHERE id = $id");
+		foreach ($query->result() as $key => $value) {
+			$this->pass = empty($data['pass']) ? $value->pass : password_hash($data['pass'], PASSWORD_BCRYPT);
+		}
+		
+		
 		if ($this->db->update( $this->table, $this, ['id'=>$id])) {
 			$this->setResponse(200,'SUCCESS',  "Alterado com sucesso.");
 			return;

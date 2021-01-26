@@ -70,10 +70,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
+$active_group = 'Fulltime';
 $query_builder = TRUE;
 
-$db['default'] = array(
+$db['Home'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost:3306',
 	'username' => 'root',
@@ -95,24 +95,47 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-//$db['online'] = array(
-//	'dsn'	=> '',
-//	'hostname' => 'localhost',
-//	'username' => '',
-//	'password' => '',
-//	'database' => '',
-//	'dbdriver' => 'mysqli',
-//	'dbprefix' => '',
-//	'pconnect' => FALSE,
-//	'db_debug' => (ENVIRONMENT !== 'production'),
-//	'cache_on' => FALSE,
-//	'cachedir' => '',
-//	'char_set' => 'utf8',
-//	'dbcollat' => 'utf8_general_ci',
-//	'swap_pre' => '',
-//	'encrypt' => FALSE,
-//	'compress' => FALSE,
-//	'stricton' => FALSE,
-//	'failover' => array(),
-//	'save_queries' => TRUE
-//);
+$db['Fulltime'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost:3306',
+	'username' => 'root',
+	'password' => 'root',
+	'database' => 'api_rest',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+
+$db['online'] = array(
+	'dsn'	=> '',
+	'hostname' => 'http://nossoprodutodigital.com/',
+	'username' => 'nossop09_marco',
+	'password' => 'Blakwol*123',
+	'database' => 'nossop09_api_rest',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);

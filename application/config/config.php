@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'localhost:8000';
+/*$config['base_url'] = 'http://nossoprodutodigital.com/'; */
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ $config['base_url'] = 'localhost:8000';
 |
 */
 $config['index_page'] = 'index.php';
+/*$config['index_page'] = ''; */
 
 /*
 |--------------------------------------------------------------------------

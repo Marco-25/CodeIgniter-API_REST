@@ -28,7 +28,9 @@ class Usuarios extends CI_Controller
 			return;
 		}
 		$name = $this->uri->segment(4);
-		$this->user->get_user_name($name);
+		$name_replace = str_replace('%20', '+',$name);
+		
+		$this->user->get_user_name($name_replace);
 	}
 
 	public function adicionar()
