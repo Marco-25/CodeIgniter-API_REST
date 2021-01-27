@@ -44,6 +44,10 @@ class User extends CI_Model
 	public function post_user()
 	{
 		$data = $this->input->post();
+		if ( !isset($data['name']) || !isset($data['pass']) ){
+			$this->setResponse(203,'WARNING',"campos {name} e {pass} nao podem ser nulos.");
+			return;
+		}
 
 		$this->name = $data['name'];
 		$this->db->where('name', $this->name);
@@ -65,6 +69,10 @@ class User extends CI_Model
 	public function put_user($id)
 	{
 		$data = $this->input->input_stream();
+		if ( !isset($data['name']) || !isset($data['pass']) ){
+			$this->setResponse(203,'WARNING',"campos {name} e {pass} nao podem ser nulos.");
+			return;
+		}
 
 		$this->name = $data['name'];
 		$this->db->where('name', $this->name);
